@@ -47,8 +47,8 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     -   edit file, paste contents: ```nano start.sh```
         ```
         #!/bin/sh
-
-        java -Xms1G -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
+        #java -Xms1G -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
+        java -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
         ```
 - test: ```./start.sh```, if all good, ```end```            
 ## Crossplay with Geyser and Floodgate
