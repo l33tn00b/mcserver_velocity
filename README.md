@@ -113,3 +113,11 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     ```  
   - ```systemctl daemon-reload```
   - ```systemctl start minecraft@paper1.service```
+  - ```ps -ef ```should show something like:
+    ```
+    mcrunner   12032       1  0 17:41 ?        00:00:00 /bin/sh /home/mcrunner/server1/start.sh
+    mcrunner   12033   12032 15 17:41 ?        00:04:41 java -jar paper-1.19.4-538.jar --nogui
+    ```
+    all good, running as non-privileged user.
+  - auto-start: ```systemctl enable minecraft@paper1.service```
+  - 
