@@ -124,6 +124,9 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     ```
     all good, running as non-privileged user.
   - auto-start: ```systemctl enable minecraft@paper1.service```
+  - in server console:
+    - ```whitelist on```
+    - ```whitelist add <username>```
 
 ## Finish Velocity Setup
 - ```nano /home/mcrunner/velocity/velocity.toml```, changing:
