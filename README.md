@@ -18,6 +18,6 @@ Set Up Minecraft Server
     -  ```wget <link>```
 - on client:
   - ```ssh-keygen -t rsa -b 4096```, setting key file location/name: ```id_rsa_mc1```
-
+  - copy key over to server: ```ssh-copy-id -i /home/<username>/.ssh/id_rsa_mc1.pub root@<your server name or ip>```
 - DNS records
   -  Set A and AAAA records 
