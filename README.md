@@ -21,7 +21,7 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     ```
 - DNS records (wherever you may be able to do so...)
   -  Set A and AAAA records 
-
+  
 - on server:
   - disable password based login: ```nano /etc/ssh/sshd_config```: look for ```PasswordAuthentication yes```
     - change to 
@@ -34,24 +34,34 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - create new user: ```adduser mcrunner```
   - ```su mcrunner```
   - ```cd ~```
-  - get current velocity version from: https://papermc.io/downloads/velocity
-    -  ```mkdir velocity```
-    -  ```cd velocity```
-    -  ```wget <link>```
-    -  create shell script for starting velocity along the lines of: https://docs.papermc.io/velocity/getting-started
-      -   ```touch start.sh```
-      -   ```chmod u+x start.sh```
-      -   edit file, paste contents: ```nano start.sh```
-          ```
-          #!/bin/sh
+# Minecraft, on server
+## Velocity proxy, Basics
+- get current velocity version from: https://papermc.io/downloads/velocity
+  -  ```mkdir velocity```
+  -  ```cd velocity```
+  -  ```wget <link>```
+  -  create shell script for starting velocity along the lines of: https://docs.papermc.io/velocity/getting-started
+    -   ```touch start.sh```
+    -   ```chmod u+x start.sh```
+    -   edit file, paste contents: ```nano start.sh```
+        ```
+        #!/bin/sh
 
-          java -Xms1G -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
-          ```
-  - test: ```./start.sh```, if all good, ```end```            
-  - add geyser/floodgate for crossplay: https://wiki.geysermc.org/geyser/setup/
-    - ```cd plugins```
-    - ```wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity -O Geyser-Velocity.jar```
-    - ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity -O floodgate-velocity.jar```
-    - ```cd ..```
-    - start server, creating plungin config files: ```./start.sh```, quit server: ```end```
-    - 
+        java -Xms1G -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
+        ```
+- test: ```./start.sh```, if all good, ```end```            
+## Crossplay with Geyser and Floodgate
+- add geyser/floodgate for crossplay: https://wiki.geysermc.org/geyser/setup/
+  - ```cd plugins```
+  - ```wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity -O Geyser-Velocity.jar```
+  - ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity -O floodgate-velocity.jar```
+  - ```cd .. ```
+  - start server, creating plugin config files: ```./start.sh``` , quit server: ```end```   
+
+## Paper as server
+- download and install Paper: https://docs.papermc.io/paper/getting-started
+- create dir for each server, install there
+  - ```cd ~```
+  - ```mkdir server1```
+  - ```cd server1```
+  - ```wget wget https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/538/downloads/paper-1.19.4-538.jar``` (or whatever is current...)
