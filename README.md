@@ -52,3 +52,6 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     - ```cd plugins```
     - ```wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity -O Geyser-Velocity.jar```
     - ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity -O floodgate-velocity.jar```
+    - ```cd ..```
+    - start server, creating plungin config files: ```./start.sh```, quit server: ```end```
+    - 
