@@ -9,6 +9,10 @@ Set Up Minecraft Server
   - ```apt-get install mc```
   - ```ufw allow ssh```
   - ```ufw enable```
+  - install java as per: https://docs.papermc.io/misc/java-install
+  - create new user: ```adduser mcrunner```
+  - ```su mcrunner```
+  - 
 - on client:
   - ```ssh-keygen -t rsa -b 4096```, setting key file location/name: ```id_rsa_mc1```
 
