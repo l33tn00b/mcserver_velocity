@@ -78,3 +78,5 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - install floodgate for crossplay:
     -  ```cd plugins```
     -  ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot -O floodgate-spigot.jar```
+  - ```cd ..```
+  - ```start.sh```, check for plugin loading correctly
