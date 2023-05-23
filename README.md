@@ -75,4 +75,6 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - ```./start.sh``` will complain about eula acceptance, so 
   - ```nano eula.txt``` change to ```eula=true```, save, quit
   - ```./start.sh```wil run the server, ```stop```, ```quit``` to exit
-  - 
+  - install floodgate for crossplay:
+    -  ```cd plugins```
+    -  ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot -O floodgate-spigot.jar```
