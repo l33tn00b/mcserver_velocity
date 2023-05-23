@@ -49,6 +49,6 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
           ```
   - test: ```./start.sh```, if all good, ```end```            
   - add geyser/floodgate for crossplay: https://wiki.geysermc.org/geyser/setup/
-    - ```cd plugins``
-    - ``` wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot```
-    - ```https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot```
+    - ```cd plugins```
+    - ```wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity -O Geyser-Velocity.jar```
+    - ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity -O floodgate-velocity.jar```
