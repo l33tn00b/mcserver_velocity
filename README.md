@@ -18,6 +18,12 @@ Set Up Minecraft Server
     -  ```wget <link>```
 - on client:
   - ```ssh-keygen -t rsa -b 4096```, setting key file location/name: ```id_rsa_mc1```
-  - copy key over to server: ```ssh-copy-id -i /home/<username>/.ssh/id_rsa_mc1.pub root@<your server name or ip>```
+  - copy key to server: ```ssh-copy-id -i /home/<local username>/.ssh/id_rsa_mc1.pub root@<your server name or ip>```
+  - edit local ssh config: ```nano /home/<local username>/.ssh/config```, add lines:
+    ```
+    Host <hostname as per A/AAAA record>
+        IdentitiesOnly yes
+        IdentityFile /home/<local username>/.ssh/id_rsa_mc1
+    ```
 - DNS records
   -  Set A and AAAA records 
