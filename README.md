@@ -81,7 +81,7 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     -  ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot -O floodgate-spigot.jar```
   - ```cd ..```
   - ```start.sh```, check for plugin loading correctly
-- optional: open another ssh connection to server, check if paper is running (can't do that from outside the server because firewall is up):
+- optional: open a root ssh connection to server, check if paper is running (can't do that from outside the server because firewall is up):
   -  ```netstat -nlp``` output should contain a line
       ```
       tcp6       0      0 :::25565                :::*                    LISTEN      11563/java
@@ -89,3 +89,27 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
       indicating a minecraft server listening to connections on port 25565. 
    - running a port scan from the outside will (hopefully) only show port 22:  
     - ```nmap -sS -sU -p 0-65535 -T4 -A -v <hostname>``` (this will take quite a while...)  
+- set up auto-start:  
+  - either ```sudo su``` (if you've given sudo privileges to user mcrunner (a little bit insecure...)) or from another root shell:
+  - ```touch /etc/systemd/system/minecraft@paper1.service```
+  - ```nano /etc/systemd/system/minecraft@paper1.service```, adding
+    ```
+    [Unit]
+    Description=Paper Minecraft server 1
+    After=network.target
+    Wants=network-online.target
+
+    [Service]
+    Type=simple
+    User=mcrunner
+    Group=mcrunner
+    WorkingDirectory=/home/mcrunner/server1
+    ExecStart=/home/mcrunner/server1/start.sh
+    Restart=always
+    RestartSec=10
+
+    [Install]
+    WantedBy=multi-user.target
+    ```  
+  - ```systemctl daemon-reload```
+  - ```systemctl start minecraft@paper1.service```
