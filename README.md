@@ -120,4 +120,19 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     ```
     all good, running as non-privileged user.
   - auto-start: ```systemctl enable minecraft@paper1.service```
-  - 
+
+## Finish Velocity Setup
+- ```nano /home/mcrunner/velocity/velocity.toml```, changing:
+  - ```player-info-forwarding-mode = "modern"```
+  - ```kick-existing-players = true```
+  - in [servers] section, comment out everything, add:
+    ```
+    # we'll leave port 30066 for a lobby, just in case
+    paper1 = "127.0.0.1:30067"
+    # In what order we should try servers when a player logs in or is kicked from a server.
+    try = [
+        "paper1"
+    ]
+    ```
+  -  in [advanced] section, change:
+    - ```tcp-fast-open = true```
