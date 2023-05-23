@@ -12,7 +12,10 @@ Set Up Minecraft Server
   - install java as per: https://docs.papermc.io/misc/java-install
   - create new user: ```adduser mcrunner```
   - ```su mcrunner```
-  - 
+  - get current velocity version from: https://papermc.io/downloads/velocity
+    -  ```mkdir velocity```
+    -  ```cd velocity```
+    -  ```wget <link>```
 - on client:
   - ```ssh-keygen -t rsa -b 4096```, setting key file location/name: ```id_rsa_mc1```
 
