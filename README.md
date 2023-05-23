@@ -93,6 +93,14 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
       indicating a minecraft server listening to connections on port 25565. 
    - running a port scan from the outside will (hopefully) only show port 22:  
     - ```nmap -sS -sU -p 0-65535 -T4 -A -v <hostname>``` (this will take quite a while...)  
+- edit global config file to accept velocity connections:
+  - ```nano /home/mcrunner/server1/config/paper_global.yml```
+    ```
+     velocity:
+       enabled: true
+       online-mode: false
+       secret: '<contents of /home/mcrunner/velocity/forwarding.secret>'
+    ```
 - set up auto-start:  
   - either ```sudo su``` (if you've given sudo privileges to user mcrunner (a little bit insecure...)) or from another root shell:
   - ```touch /etc/systemd/system/minecraft@paper1.service```
