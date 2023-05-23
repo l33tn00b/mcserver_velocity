@@ -47,3 +47,8 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
 
           java -Xms1G -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
           ```
+  - test: ```./start.sh```, if all good, ```end```            
+  - add geyser/floodgate for crossplay: https://wiki.geysermc.org/geyser/setup/
+    - ```cd plugins``
+    - ``` wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/spigot```
+    - ```https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot```
