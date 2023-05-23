@@ -56,7 +56,7 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - ```wget https://download.geysermc.org/v2/projects/geyser/versions/latest/builds/latest/downloads/velocity -O Geyser-Velocity.jar```
   - ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/velocity -O floodgate-velocity.jar```
   - ```cd .. ```
-  - start server, creating plugin config files: ```./start.sh``` , quit server: ```end```   
+  - start velocity proxy, creating plugin config files: ```./start.sh``` , quit velocity: ```end```   
 
 ## Paper as server
 - download and install Paper: https://docs.papermc.io/paper/getting-started
@@ -74,4 +74,5 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     ```
   - ```./start.sh``` will complain about eula acceptance, so 
   - ```nano eula.txt``` change to ```eula=true```, save, quit
+  - ```./start.sh```wil run the server, ```stop```, ```quit``` to exit
   - 
