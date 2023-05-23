@@ -65,3 +65,13 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - ```mkdir server1```
   - ```cd server1```
   - ```wget wget https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/538/downloads/paper-1.19.4-538.jar``` (or whatever is current...)
+  - ```touch start.sh```
+  - ```chmod u+x start.sh```
+  - ```nano start.sh```, adding (leaving out memory min/max arguments because we have a small server):
+    ```
+    #!/bin/sh
+    java -jar paper-1.19.4-538.jar --nogui
+    ```
+  - ```./start.sh``` will complain about eula acceptance, so 
+  - ```nano eula.txt``` change to ```eula=true```, save, quit
+  - 
