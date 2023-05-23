@@ -80,7 +80,11 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     -  ```cd plugins```
     -  ```wget https://download.geysermc.org/v2/projects/floodgate/versions/latest/builds/latest/downloads/spigot -O floodgate-spigot.jar```
   - ```cd ..```
-  - ```start.sh```, check for plugin loading correctly
+  - ```./start.sh```, check for plugin loading correctly, ```quit```
+  - ```nano server.properties```
+    - ```online-mode=false``` (because we'll rely on velocity doing the checks)
+    - ```server-ip=127.0.0.1```
+    - ```server-port=30067```
 - optional: open a root ssh connection to server, check if paper is running (can't do that from outside the server because firewall is up):
   -  ```netstat -nlp``` output should contain a line
       ```
