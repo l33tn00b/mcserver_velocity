@@ -1,14 +1,15 @@
 # mcserver_velocity
-Set Up Minecraft Server
+Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to velocity/paper based server with geyser.
 
 # Choose Server Image
 - we'll go for Ubuntu 22.04 LTS
 
 # Basic Server Setup
 - on server:
-  - ```apt-get install mc```
-  - ```ufw allow ssh```
-  - ```ufw enable```
+  - convenience: ```apt-get install mc```
+  - get firewall up and running:
+    - ```ufw allow ssh```
+    - ```ufw enable```
   - install java as per: https://docs.papermc.io/misc/java-install
   - create new user: ```adduser mcrunner```
   - ```su mcrunner```
@@ -25,5 +26,14 @@ Set Up Minecraft Server
         IdentitiesOnly yes
         IdentityFile /home/<local username>/.ssh/id_rsa_mc1
     ```
-- DNS records
+- DNS records (wherever you may be able to do so...)
   -  Set A and AAAA records 
+
+- on server:
+  - disable password based login: ```nano /etc/ssh/sshd_config```: look for ```PasswordAuthentication yes```
+    - change to 
+      ```
+      PasswordAuthentication no
+      ```
+    - save file.
+    - restart ssh server: ```service ssh restart``` 
