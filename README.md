@@ -10,13 +10,6 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - get firewall up and running:
     - ```ufw allow ssh```
     - ```ufw enable```
-  - install java as per: https://docs.papermc.io/misc/java-install
-  - create new user: ```adduser mcrunner```
-  - ```su mcrunner```
-  - get current velocity version from: https://papermc.io/downloads/velocity
-    -  ```mkdir velocity```
-    -  ```cd velocity```
-    -  ```wget <link>```
 - on client:
   - ```ssh-keygen -t rsa -b 4096```, setting key file location/name: ```id_rsa_mc1```
   - copy key to server: ```ssh-copy-id -i /home/<local username>/.ssh/id_rsa_mc1.pub root@<your server name or ip>```
@@ -37,3 +30,20 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
       ```
     - save file.
     - restart ssh server: ```service ssh restart``` 
+  - install java as per: https://docs.papermc.io/misc/java-install
+  - create new user: ```adduser mcrunner```
+  - ```su mcrunner```
+  - ```cd ~```
+  - get current velocity version from: https://papermc.io/downloads/velocity
+    -  ```mkdir velocity```
+    -  ```cd velocity```
+    -  ```wget <link>```
+    -  create shell script for starting velocity along the lines of: https://docs.papermc.io/velocity/getting-started
+      -   ```touch start.sh```
+      -   ```chmod u+x start.sh```
+      -   edit file, paste contents: ```nano start.sh```
+          ```
+          #!/bin/sh
+
+          java -Xms1G -Xmx1G -XX:+UseG1GC -XX:G1HeapRegionSize=4M -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlineLevel=15 -jar velocity*.jar
+          ```
