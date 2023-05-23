@@ -10,6 +10,7 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
   - get firewall up and running:
     - ```ufw allow ssh```
     - ```ufw enable```
+  - ```apt-get install net-tools``` (for netstat, checking port assigments of server(s) and proxy)
 - on client:
   - ```ssh-keygen -t rsa -b 4096```, setting key file location/name: ```id_rsa_mc1```
   - copy key to server: ```ssh-copy-id -i /home/<local username>/.ssh/id_rsa_mc1.pub root@<your server name or ip>```
