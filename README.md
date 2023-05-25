@@ -63,7 +63,7 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
 
 ## Paper as server
 Stupid does. Just dump it in a directory below the user's home.
-Repeat for each individual server you might want to run.
+Repeat for each individual server you might want to run using differently named directories below user home.
 - download and install Paper: https://docs.papermc.io/paper/getting-started
 - create dir for each server, install there
   - ```cd ~```
@@ -120,7 +120,7 @@ Repeat for each individual server you might want to run.
     User=mcrunner
     Group=mcrunner
     WorkingDirectory=/home/mcrunner/server1
-    ExecStart=/home/mcrunner/server1/start.sh
+    ExecStart=screen -DmS paper1 /home/mcrunner/server1/start.sh
     Restart=always
     RestartSec=10
 
@@ -131,14 +131,12 @@ Repeat for each individual server you might want to run.
   - ```systemctl start minecraft@paper1.service```
   - ```ps -ef ```should show something like:
     ```
-    mcrunner   12032       1  0 17:41 ?        00:00:00 /bin/sh /home/mcrunner/server1/start.sh
-    mcrunner   12033   12032 15 17:41 ?        00:04:41 java -jar paper-1.19.4-538.jar --nogui
+    mcrunner   37116       1  0 21:38 ?        00:00:00 SCREEN -DmS paper1 /home/mcrunner/server1/start.sh
+    mcrunner   37117   37116  0 21:38 pts/4    00:00:00 /bin/sh /home/mcrunner/server1/start.sh
+    mcrunner   37118   37117 26 21:38 pts/4    00:03:01 java -jar paper-1.19.4-538.jar --nogui
     ```
     all good, running as non-privileged user.
   - auto-start: ```systemctl enable minecraft@paper1.service```
-  - in server console:
-    - ```whitelist on```
-    - ```whitelist add <username>```
 
 ## Finish Velocity Setup
 - ```nano /home/mcrunner/velocity/velocity.toml```, changing:
