@@ -63,7 +63,8 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
 
 ## Paper as server
 Stupid does. Just dump it in a directory below the user's home.
-Repeat for each individual server you might want to run using differently named directories below user home.
+Repeat for each individual server you might want to run using differently named directories below user home.  
+We'll run the server from a `screen` session since we don't have an admin panel / server wrapper. Thus, we may safely detach from the server at startup (from inside a systemd unit file) and re-attach at will later on for admin tasks.
 - download and install Paper: https://docs.papermc.io/paper/getting-started
 - create dir for each server, install there
   - ```cd ~```
@@ -88,7 +89,7 @@ Repeat for each individual server you might want to run using differently named 
   - ```nano server.properties```
     - ```online-mode=false``` (because we'll rely on velocity doing the checks)
     - ```server-ip=127.0.0.1``` (bind to localhost only. no direct connections from the outside (i.e. internet))
-    - ```server-port=30067``` (chose a port, needs to be set accordingly in velocity config)
+    - ```server-port=30067``` (choose a port, needs to be set accordingly in velocity config)
 - optional: open a root ssh connection to server, check if paper is running (can't do that from outside the server because firewall is up):
   -  ```netstat -nlp``` output should contain a line
       ```
@@ -137,6 +138,10 @@ Repeat for each individual server you might want to run using differently named 
     ```
     all good, running as non-privileged user.
   - auto-start: ```systemctl enable minecraft@paper1.service```
+  - attach to server console:
+    - ```screen -r paper1```
+    - ```whitelist on```
+    - Keys to detach and keep the server running: ```CTRL-A```, ```D```
 
 ## Finish Velocity Setup
 - ```nano /home/mcrunner/velocity/velocity.toml```, changing:
@@ -184,6 +189,7 @@ Bedrock client players will show up with a pre-pended ```.``` in front of their 
 
 
 # Get your friends connected:
+Velocity will handle incoming connections.
 ## Java, using TCP connection:
 - Connect to ```<hostname>:25577```  
   output of ```netstat -nlp``` on your server:
