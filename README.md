@@ -174,14 +174,14 @@ Using ```fwhitelist add <bedrock user name>```might fail.
 
 # Get your friends connected:
 ## Java, using TCP connection:
-- Connect to <hostname>:25577
+- Connect to <hostname>:25577  
   output of ```netstat -nlp``` on your server:
   ```
   tcp6       0      0 :::25577                :::*                    LISTEN      26438/java
   ```
 
 ## Bedrock (crappy clients), using UDP connection
-- Connect to <hostname>:19139
+- Connect to <hostname>:19139  
   output of ```netstat -nlp``` on your server:
   ```
   udp6       0      0 :::19132                :::*                                26438/java
