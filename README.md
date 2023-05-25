@@ -154,6 +154,10 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     
 ## You should now be able to re-start velocity and paper
 
+## Allow incoming connections
+- ```ufw allow proto udp from any to <your server's public ip> port 19132``` (bedrock clients)
+- ```ufw allow proto tcp from any to <your server's public ip> port 25577``` (java clients)
+
 # Admin tasks
 ## whitelisting java players
 - go to paper server console
@@ -181,7 +185,7 @@ Using ```fwhitelist add <bedrock user name>```might fail.
   ```
 
 ## Bedrock (crappy clients), using UDP connection
-- Connect to <hostname>:19139  
+- Connect to <hostname>:19132  
   output of ```netstat -nlp``` on your server:
   ```
   udp6       0      0 :::19132                :::*                                26438/java
