@@ -1,5 +1,7 @@
 # mcserver_velocity
-Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to velocity/paper based server with geyser.
+Set up a private Minecraft Server for the kids, block other Realms/Servers and Marketplace.
+
+Server: going from  ssh password login enabled Ubuntu image to velocity/paper based server with geyser.
 
 # Choose Server Image
 - we'll go for Ubuntu 22.04 LTS
@@ -196,9 +198,9 @@ Bedrock client players will show up with a pre-pended ```.``` in front of their 
   udp6       0      0 :::19132                :::*                                26438/java
   ``` 
 
-# Get rid of featured servers?
+# Get rid of featured servers and marketplace?
 - https://github.com/Pugmatt/BedrockConnect has a list of domain names to be blackholed (DNS) (pi-hole to the rescue)  
 - perhaps you might also want to block the ip addresses of these servers in your network's firewall (hello, UDM) 
 - do also blackhole: pocket.realms.minecraft.net
--  
+- blackhole and block store.mktpl.minecraft-services.net
 
