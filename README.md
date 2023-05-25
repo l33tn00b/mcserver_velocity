@@ -198,5 +198,7 @@ Bedrock client players will show up with a pre-pended ```.``` in front of their 
 
 # Get rid of featured servers?
 - https://github.com/Pugmatt/BedrockConnect has a list of domain names to be blackholed (DNS) (pi-hole to the rescue)  
-- perhaps you might also want to block the ip addresses of these servers in your network's firewall (hello, UDM)  
+- perhaps you might also want to block the ip addresses of these servers in your network's firewall (hello, UDM) 
+- do also blackhole: pocket.realms.minecraft.net
+-  
 
