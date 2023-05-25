@@ -155,8 +155,12 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
 ## You should now be able to re-start velocity and paper
 
 ## Allow incoming connections
-- ```ufw allow proto udp from any to <your server's public ip> port 19132``` (bedrock clients)
-- ```ufw allow proto tcp from any to <your server's public ip> port 25577``` (java clients)
+We'll allow incoming connections to our server's public IP address(es) only for specific ports (the ones handled by velocity (native Java) and its geyser plugin (bedrock clients))
+- ```ufw allow proto udp from any to <your server's public ipv4> port 19132``` (bedrock clients)
+- ```ufw allow proto tcp from any to <your server's public ipv4> port 25577``` (java clients)
+- ```ufw allow proto udp from any to <your server's public ipv6> port 19132``` (bedrock clients)
+- ```ufw allow proto tcp from any to <your server's public ipv6> port 25577``` (java clients)
+- ```ufw reload```
 
 # Admin tasks
 ## whitelisting java players
