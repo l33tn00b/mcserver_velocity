@@ -1,5 +1,6 @@
 # mcserver_velocity
 Set up a private Minecraft Server for the kids, block other Realms/Servers and Marketplace.
+Access control by whitelisting individual players.
 
 Server: going from  ssh password login enabled Ubuntu image to velocity/paper based server with geyser.
 
