@@ -157,7 +157,7 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
 # Admin tasks
 ## whitelisting java players
 - go to paper server console
-  - ````whitelist add <player name>```, you'll have an entry (which needs to be modified) in the whitelist file.
+  - ```whitelist add <player name>```, you'll have an entry (which needs to be modified) in the whitelist file.
 - get proper player UUID, e.g. from https://mcuuid.net by entering player name.
 - quit server console or use another terminal session:
   - ```nano /home/mcrunner/server1/whitelist.json``` 
@@ -171,3 +171,18 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
 According to https://wiki.geysermc.org/geyser/faq/ (How do I add players to the whitelist when using Floodgate?).
 Using ```fwhitelist add <bedrock user name>```might fail. 
 
+
+# Get your friends connected:
+## Java, using TCP connection:
+- Connect to <hostname>:25577
+  output of ```netstat -nlp``` on your server:
+  ```
+  tcp6       0      0 :::25577                :::*                    LISTEN      26438/java
+  ```
+
+## Bedrock (crappy clients), using UDP connection
+- Connect to <hostname>:19139
+  output of ```netstat -nlp``` on your server:
+  ```
+  udp6       0      0 :::19132                :::*                                26438/java
+  ``` 
