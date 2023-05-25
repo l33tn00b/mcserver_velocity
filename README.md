@@ -151,3 +151,16 @@ Set Up Minecraft Server, going from  ssh password login enabled Ubuntu image to 
     ```
   -  in [advanced] section, change:
     - ```tcp-fast-open = true```
+    
+## You should now be able to re-start velocity and paper
+
+# Admin tasks
+## whitelisting java players
+- go to paper server console
+  - ````whitelist add <player name>```, you'll have an entry (which needs to be modified) in the whitelist file.
+- get proper player UUID, e.g. from https://mcuuid.net by entering player name.
+- quit server console or use another terminal session:
+  - ```nano /home/mcrunner/server1/whitelist.json``` 
+  - find the entry of the player to be whitelisted.
+  - modify the UUID to be the one you just looked up.
+  - 
