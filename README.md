@@ -62,6 +62,8 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
   - start velocity proxy, creating plugin config files: ```./start.sh``` , quit velocity: ```end```   
 
 ## Paper as server
+Stupid does. Just dump it in a directory below the user's home.
+Repeat for each individual server you might want to run.
 - download and install Paper: https://docs.papermc.io/paper/getting-started
 - create dir for each server, install there
   - ```cd ~```
@@ -85,14 +87,14 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
   - ```./start.sh```, check for plugin loading correctly, ```quit```
   - ```nano server.properties```
     - ```online-mode=false``` (because we'll rely on velocity doing the checks)
-    - ```server-ip=127.0.0.1```
-    - ```server-port=30067```
+    - ```server-ip=127.0.0.1``` (bind to localhost only. no direct connections from the outside (i.e. internet))
+    - ```server-port=30067``` (chose a port, needs to be set accordingly in velocity config)
 - optional: open a root ssh connection to server, check if paper is running (can't do that from outside the server because firewall is up):
   -  ```netstat -nlp``` output should contain a line
       ```
-      tcp6       0      0 :::25565                :::*                    LISTEN      11563/java
+      tcp6       0      0 127.0.0.1:30067         :::*                    LISTEN      37118/java
       ```
-      indicating a minecraft server listening to connections on port 25565. 
+      indicating a minecraft server listening to connections on port 30067 of localhost. 
    - running a port scan from the outside will (hopefully) only show port 22:  
     - ```nmap -sS -sU -p 0-65535 -T4 -A -v <hostname>``` (this will take quite a while...)  
 - edit global config file to accept velocity connections:
