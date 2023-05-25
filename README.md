@@ -176,8 +176,9 @@ We'll allow incoming connections to our server's public IP address(es) only for 
   - ```whitelist reload```
 
 ## whitelisting bedrock (=non-java) players
-According to https://wiki.geysermc.org/geyser/faq/ (How do I add players to the whitelist when using Floodgate?).
-Using ```fwhitelist add <bedrock user name>```might fail. 
+According to https://wiki.geysermc.org/geyser/faq/ (How do I add players to the whitelist when using Floodgate?).  
+Bedrock client players will show up with a pre-pended ```.``` in front of their player names (if you didn't specify anything else).  
+- ```fwhitelist add .<bedrock user name>``` (please note the pre-pended ```.```)
 
 
 # Get your friends connected:
