@@ -158,8 +158,49 @@ We'll run the server from a `screen` session since we don't have an admin panel 
     ```
   -  in [advanced] section, change:
     - ```tcp-fast-open = true```
+- set up velocity auto start:
+  - ```touch /etc/systemd/system/minecraft@velocity.service```
+  - ```nano /etc/systemd/system/minecraft@velocity.service```, add:
+    ```
+    [Unit]
+    Description=Velocity Minecraft Proxy
+    After=network.target
+    Wants=network-online.target
+
+    [Service]
+    Type=simple
+    User=mcrunner
+    Group=mcrunner
+    WorkingDirectory=/home/mcrunner/velocity
+    ExecStart=screen -DmS velocity /home/mcrunner/velocity/start.sh
+    Restart=always
+    RestartSec=10
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+  - ```systemctl daemon-reload```
+  - ```systemctl start minecraft@velocity```
+  - check: ```systemctl status minecraft@velocity```
+    ```
+    ● minecraft@velocity.service - Velocity Minecraft Proxy
+     Loaded: loaded (/etc/systemd/system/minecraft@velocity.service; disabled; vendor preset: enabled)
+     Active: active (running) since Thu 2023-05-25 22:14:35 CEST; 8s ago
+     Main PID: 37423 (screen)
+      Tasks: 33 (limit: 2233)
+     Memory: 364.6M
+        CPU: 12.909s
+     CGroup: /system.slice/system-minecraft.slice/minecraft@velocity.service
+             ├─37423 SCREEN -DmS velocity /home/mcrunner/velocity/start.sh
+             ├─37424 /bin/sh /home/mcrunner/velocity/start.sh
+             └─37425 java -XX:+UnlockExperimentalVMOptions -XX:+ParallelRefProcEnabled -XX:+AlwaysPreTouch -XX:MaxInlin>
+    ``` 
+  - ```systemctl enable minecraft@service```
+  
     
 ## You should now be able to re-start velocity and paper
+- ```systemctl restart minecraft@velocity```
+- ```systemctl restart minecraft@paper1```
 
 ## Allow incoming connections
 We'll allow incoming connections to our server's public IP address(es) only for specific ports (the ones handled by velocity (native Java) and its geyser plugin (bedrock clients))
