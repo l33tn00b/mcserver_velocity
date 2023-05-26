@@ -4,6 +4,15 @@ Access control by whitelisting individual players.
 
 Server: going from  ssh password login enabled Ubuntu image to velocity/paper based server with geyser.
 
+## What server hardware to get?
+- Memory:
+  - velocity proxy will gobble up quite some memory... just running it (without any min heap size arguments and no players) will use approx. 512MB.
+  - paper with one world (incl. nether and end) will use approx. 800MB of memory.
+- CPU:
+  - velocity (nothing going on): pretty much no cpu usage
+  - paper with no players (world inc. nether and end): 10% of a 4000 BogoMips AMD CPU.
+ 
+ So: don't go for CPU power, go for RAM when choosing a server.
 # Choose Server Image
 - we'll go for Ubuntu 22.04 LTS
 
@@ -38,6 +47,13 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
   - create new user: ```adduser mcrunner```
   - ```su mcrunner```
   - ```cd ~```
+  - we need swap...
+    - create swap file of 8GB: ```dd if=/dev/zero of=/mnt/8GiB.swap bs=4k iflag=fullblock,count_bytes count=8G```
+    - restrict access to swap file: ```chmod 600 /mnt/8GiB.swap```
+    - format the file as swap space: ``` mkswap /mnt/8GiB.swap```
+    - use it: ```swapon /mnt/8GiB.swap``` 
+    - tell the OS to use it at startup: ```echo '/mnt/8GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab```
+    
 # Minecraft, on server
 ## Velocity proxy, Basics
 - get current velocity version from: https://papermc.io/downloads/velocity
