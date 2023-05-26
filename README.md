@@ -44,15 +44,17 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
     - save file.
     - restart ssh server: ```service ssh restart``` 
   - install java as per: https://docs.papermc.io/misc/java-install
-  - create new user: ```adduser mcrunner```
-  - ```su mcrunner```
-  - ```cd ~```
   - we need swap...
     - create swap file of 8GB: ```dd if=/dev/zero of=/mnt/8GiB.swap bs=4k iflag=fullblock,count_bytes count=8G```
     - restrict access to swap file: ```chmod 600 /mnt/8GiB.swap```
     - format the file as swap space: ``` mkswap /mnt/8GiB.swap```
     - use it: ```swapon /mnt/8GiB.swap``` 
     - tell the OS to use it at startup: ```echo '/mnt/8GiB.swap swap swap defaults 0 0' | sudo tee -a /etc/fstab```
+  - create new user, switch user, go to home dir:
+    -  ```adduser mcrunner```
+    - ```su mcrunner```
+    - ```cd ~```
+  
     
 # Minecraft, on server
 ## Velocity proxy, Basics
