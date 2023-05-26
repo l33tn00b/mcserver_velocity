@@ -283,3 +283,12 @@ Velocity will handle incoming connections.
 - do also blackhole: pocket.realms.minecraft.net
 - blackhole and block store.mktpl.minecraft-services.net
 
+# Plugins for the server
+- ```cd /home/mcrunner/serverX/plugins```
+- EssentialsX ```wget https://github.com/EssentialsX/Essentials/releases/download/2.20.0/EssentialsX-2.20.0.jar```
+- EssentialsX Spawn ```wget  https://github.com/EssentialsX/Essentials/releases/download/2.20.0/EssentialsXSpawn-2.20.0.jar```
+- EssentialsX Build Protection:  ```wget https://github.com/EssentialsX/Essentials/releases/download/2.20.0/EssentialsXAntiBuild-2.20.0.jar``` (for Lobby)
+- LuckPerms for Permissions:  ```wget https://download.luckperms.net/1491/bukkit/loader/LuckPerms-Bukkit-5.4.79.jar```
+- Vault for talking to LuckPerms: ```wget https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar -O vault-1.7.3.jar```
+- 
+
