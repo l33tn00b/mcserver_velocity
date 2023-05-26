@@ -13,8 +13,10 @@ Server: going from  ssh password login enabled Ubuntu image to velocity/paper ba
   - paper with no players (world inc. nether and end): 10% of a 4000 BogoMips AMD CPU.
  
  So: don't go for CPU power, go for RAM when choosing a server.
+ 
 # Choose Server Image
-- we'll go for Ubuntu 22.04 LTS
+- we'll go for Ubuntu 22.04 LTS  
+Just because I like it.
 
 # Basic Server Setup
 - on server:
