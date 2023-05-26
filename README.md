@@ -4,6 +4,11 @@ Access control by whitelisting individual players.
 
 Server: going from  ssh password login enabled Ubuntu image to velocity/paper based server with geyser and floodgate for crossplay between Java and Bedrock edition.
 
+Velocity and Paper will be run as demonized services at server startup. Interactivity will be provided by screen for re-attaching to the consoles. There's a ton of options for doing this: 
+- https://unix.stackexchange.com/questions/453998/systemd-connect-to-stdin-stdout-after-service-has-started/454098#454098
+- https://unix.stackexchange.com/questions/598221/how-to-control-systemd-service-using-screen
+
+
 ## What server hardware to get?
 - Memory:
   - velocity proxy will gobble up quite some memory... just running it (without any min heap size arguments and no players) will use approx. 512MB.
