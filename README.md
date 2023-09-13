@@ -292,3 +292,19 @@ Velocity will handle incoming connections.
 - Vault for talking to LuckPerms: ```wget https://github.com/MilkBowl/Vault/releases/download/1.7.3/Vault.jar -O vault-1.7.3.jar```
 - 
 
+# set up mumble chat
+mumble's Ubuntu repo (add ppa) doesn't work. 
+So we take the default version from Ubuntu.
+- install: ```apt-get install mumble-server```
+- set SuperUser password: ```dpkg-reconfigure mumble-server```
+- configure (make non-public): ```nano /etc/mumble-server.ini```
+  ```
+  serverpassword=<your password>
+  timeout=30
+  registerName=<nice name>
+  ```
+- open firewall:
+  ```
+  ufw allow proto udp from any to <server ip> port 64738
+  ufw allow proto tcp from any to <server ip> port 64738
+  ```
