@@ -303,6 +303,7 @@ So we take the default version from Ubuntu.
   timeout=30
   registerName=<nice name>
   ```
+- reload server: ```systemctl reload mumble-server```
 - open firewall:
   ```
   ufw allow proto udp from any to <server ip> port 64738
